@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-center mb-3">Latest Posts</h1>
+    {% if user.is_superuser %}
+    <div class="row">
+        <div class="col">
+            <a type="submit" href="/admin/blogpost/post/" class="btn btn-primary btn-success mb-2">Add Item</a>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row mt-4">
+        <div class="col">
+            <ul class="list-group">
+                {% for post in posts %}
+                    <li class="list-group-item"><a href="/posts/details/{{ post.id }}">{{ post.title }}</a>
+                        <div class="float-right">
+                            {{ post.created_at }}
+                        </div>
+                        {{ post.descriptions | truncatechars:100 }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+   
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-center mb-3">{{post.title}}</h1>
+    <div class="card mb-3">
+        <div class="card-body">
+            <p class="lead">{{ post.description }}</p>
+            <a href="/posts" class="btn btn-primary btn-sm">Go Back</a>
+        </div>
+        <div class="card-footer text-muted">
+            {{ post.created_at }}
+        </div>
+    </div>
+{% endblock %}
